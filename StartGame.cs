@@ -5,7 +5,8 @@ public class StartGame()
 
     string characterName = "";
     int classSelection = 0;
-   
+    string myClass = "";
+
 
 
     public void GameIntro()
@@ -56,7 +57,7 @@ public class StartGame()
             Console.WriteLine("3 Wizard - Powerful combat and utility spells.");
             Console.ResetColor();
 
-            string classAsString = "0";
+            string classAsString = "";
 
             while (classAsString is not "1" and not "2" and not "3")
                 {
@@ -66,7 +67,6 @@ public class StartGame()
 
                 }
             classSelection = int.Parse(classAsString);
-            string myClass;
 
             if (classSelection == 1)
             {
@@ -89,12 +89,43 @@ public class StartGame()
 
         void InitialStats(int classNum)
         {
-            int strength, dexterity, constitution, intelligence, wisdom, charisma, hp, ac, gold;
+            int meleeBonus, rangedBonus, spellBonus, hp, ac, gold;
 
             if (classNum == 1)
             {
-
+                meleeBonus = 5;
+                rangedBonus = 2;
+                spellBonus = -4;
+                hp = 14;
+                ac = 12;
+                gold = 400;
             }
+            else if (classNum == 2)
+            {
+                meleeBonus = 2;
+                rangedBonus = 5;
+                spellBonus = -2;
+                hp = 10;
+                ac = 15;
+                gold = 400;
+            }
+            else {
+                meleeBonus = -2;
+                rangedBonus = 2;
+                spellBonus = 5;
+                hp = 7;
+                ac = 10;
+                gold = 400;
+            }
+
+            Console.WriteLine("\nYou are " + characterName + ", the renown " + myClass + "!");
+            Console.WriteLine("\n\nYour starting stats are:\n\n");
+            Console.WriteLine("Melee Bonus: " + meleeBonus);
+            Console.WriteLine("Ranged Bonus: " + rangedBonus);
+            Console.WriteLine("Spell Bonus: " + spellBonus);
+            Console.WriteLine("HP: " + hp);
+            Console.WriteLine("AC: " + ac);
+            Console.WriteLine("Gold: " + gold + "\n");
         }
 
     }
