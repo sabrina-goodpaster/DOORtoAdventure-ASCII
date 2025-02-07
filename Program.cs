@@ -9,11 +9,13 @@ namespace Adventure
     {
         static void Main()
         {
+            //intro screen, name, and class information gathered
             StartGame startGame = new StartGame();
-            // EndGame endGame = new EndGame();
-
-            startGame.GameIntro();            
-            // endGame.EndGame(); 
+            //start player at world map, allow for movement and interaction
+            TravelMap travelMap = new TravelMap();
+        
+            startGame.GameIntro();
+            travelMap.StartTownSquare();
             Console.ReadKey();
 
         }

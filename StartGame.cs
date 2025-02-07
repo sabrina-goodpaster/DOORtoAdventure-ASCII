@@ -3,9 +3,10 @@
 public class StartGame()
 {
 
-    string characterName = "";
+    public static string characterName = "";
     int classSelection = 0;
-    string myClass = "";
+    public static string myClass = "";
+    public static int meleeBonus, rangedBonus, spellBonus, hp, ac;
 
 
 
@@ -27,7 +28,7 @@ public class StartGame()
 
         NameCharacter();
 
-        //ask player for a name, and save it
+        //ask player for a name between 3-20 characters, and save it
         void NameCharacter()
         {
             
@@ -42,10 +43,9 @@ public class StartGame()
             CharacterClass();
         }
 
-        //ask player for a class selection, and save it
+        //ask player for a class number selection, 1-3, and save it
         void CharacterClass()
         {
-            
 
             // Console.Clear();
             Console.WriteLine("\n\nWhich class would you like to choose for your character?\n");
@@ -81,15 +81,14 @@ public class StartGame()
                 myClass = "wizard";
             }
 
-            Console.WriteLine("Your character, " + characterName + " is now a " + myClass + ".");
-
             InitialStats(classSelection);
 
             }
 
+        //set game stats based on class
         void InitialStats(int classNum)
         {
-            int meleeBonus, rangedBonus, spellBonus, hp, ac, gold;
+           
 
             if (classNum == 1)
             {
@@ -98,7 +97,6 @@ public class StartGame()
                 spellBonus = -4;
                 hp = 14;
                 ac = 12;
-                gold = 400;
             }
             else if (classNum == 2)
             {
@@ -107,7 +105,6 @@ public class StartGame()
                 spellBonus = -2;
                 hp = 10;
                 ac = 15;
-                gold = 400;
             }
             else {
                 meleeBonus = -2;
@@ -115,18 +112,10 @@ public class StartGame()
                 spellBonus = 5;
                 hp = 7;
                 ac = 10;
-                gold = 400;
             }
 
-            Console.WriteLine("\nYou are " + characterName + ", the renown " + myClass + "!");
-            Console.WriteLine("\n\nYour starting stats are:\n\n");
-            Console.WriteLine("Melee Bonus: " + meleeBonus);
-            Console.WriteLine("Ranged Bonus: " + rangedBonus);
-            Console.WriteLine("Spell Bonus: " + spellBonus);
-            Console.WriteLine("HP: " + hp);
-            Console.WriteLine("AC: " + ac);
-            Console.WriteLine("Gold: " + gold + "\n");
         }
 
+        //go back to Program.cs for next steps
     }
 }
