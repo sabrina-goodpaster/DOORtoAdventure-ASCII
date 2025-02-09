@@ -10,6 +10,10 @@ public class TravelMap
     //game introduction placing the player in the town square for the first time
     public void StartTownSquare()
 	{
+        //create all weapons used in the game
+        Weapon weaponcreate = new Weapon();
+        weaponcreate.CreateWeapons();
+
         Console.Clear();
         Console.WriteLine("\nYou are " + StartGame.characterName + ", the renown " + StartGame.myClass + "!");
         Console.WriteLine("\n\nYour starting stats are:\n\n");
@@ -29,6 +33,7 @@ public class TravelMap
         TownSquare();
     }
 
+    //Each time the player moves to the town square, this description loads
     public void TownSquare()
     {
         string moveSelection = "";
@@ -43,14 +48,28 @@ public class TravelMap
             Console.WriteLine("(B) Visit the Blacksmith\r\n(A) Adventure in the Woods\r\n(S) Visit the Sage Hut\r\n(I) Visit the INN\r\n(C) View Character Status");
 
             moveSelection = (Console.ReadLine());
+
+            //accept the upper or lower case letter as an appropriate selection
             moveSelection = moveSelection.ToUpper();
-            Console.WriteLine(moveSelection);
+        }
+
+        if (moveSelection is "B")
+        {
+            Console.WriteLine("You approach the blacksmith working hard at his forge. Weapons and armor for sale are laid out on a table beside him. He looks up at you and asks, \"Are you interested in armor or weapons today?\"");
+            
+            
+
         }
         
     }
     public void Blacksmith()
     {
         Console.WriteLine("You are at the Blacksmith.");
+
+        if (charLevel >= 1 && charLevel <= 2)
+        {
+
+        }
     }
 
     public void SageHut()
