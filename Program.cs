@@ -3,8 +3,6 @@
 namespace Adventure
 
 {
-  
-
     class Program
     {
         static void Main()
